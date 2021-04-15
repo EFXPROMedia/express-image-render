@@ -1,7 +1,4 @@
-# express-image-render
-This is an express image render, small, yet packed with powerful capabilities.
-
-Designed with image performance in mind, this module has proven powerful to deal with loads of images at high resolution to thumbnails in matter of milliseconds.
+This is an express middleware image render and processor, designed with image performance in mind, this module has proven powerful to deal with loads of images at high resolution to thumbnails in matter of milliseconds.
 
 ## Installation
 
@@ -30,6 +27,7 @@ On your Front-end you can call your images adding the following image params:
     crop: "cover" (default), contain, fill, inside, outside. Note: `cover and contain will center image`
 ```
 
+**Note**: All GET requests to images and all operations will either read the default values or process the params if any present in the request.
 
 Example:
 ```html
