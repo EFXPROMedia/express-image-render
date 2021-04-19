@@ -7,14 +7,16 @@ This is an express middleware image render and processor, designed with image pe
 On your express main file:
 
 ```javascript
-const imageRender = require('express-image-render');
+const imageRender = require("express-image-render");
 //====================================================================
-// ### ADD YOPUR IMAGE RENDERING DIRECTORIES
+// ### ADD YOUR IMAGE RENDERING DIRECTORIES
 //====================================================================
-app.use('/path/to/site/images', imageRender);
-app.use('/path/to/another/folder/of/images', imageRender);
+const imageOpts = {
+  quality: 100, // 60 (default), added in v1.0.2 this allows image render quality output control min 1 max 100
+};
+app.use("/path/to/site/images", imageRender(imageOpts));
+app.use("/path/to/another/folder/of/images", imageRender);
 ```
-
 
 ## Usage
 
@@ -30,7 +32,9 @@ On your Front-end you can call your images adding the following image params:
 **Note**: All GET requests to images and all operations will either read the default values or process the params if any present in the request.
 
 Example:
-```html
-<img src="/path/to/my/image/image.jpg?width=1000&height=800&format=webp&crop=cover">
-```
 
+```html
+<img
+  src="/path/to/my/image/image.jpg?width=1000&height=800&format=webp&crop=cover"
+/>
+```
